@@ -4,9 +4,12 @@ import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
+@Entity
+@Table(name = "Class")
 public class Klass {
     private String name;
     private Set<Student> students = new HashSet<>();
+
 
     public Klass() {}
 

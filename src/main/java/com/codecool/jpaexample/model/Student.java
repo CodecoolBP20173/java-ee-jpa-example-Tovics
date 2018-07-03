@@ -15,20 +15,28 @@ public class Student {
 
     private String name;
 
+    @Column(unique  = true, nullable = false)
     private String email;
 
     @Temporal(TemporalType.DATE)
     private Date dateOfBirth;
 
+    @Transient
     private long age;
 
     @OneToOne
     private Address address;
 
+    @ElementCollection
+    @CollectionTable(name = "Phone")
+    @Column(name = "Phone Number")
+    private List<String> phoneNumbers;
+
     public Student() {
     }
 
     public Student(String name, String email, Date dateOfBirth) {
+
         this.name = name;
         this.email = email;
         this.dateOfBirth = dateOfBirth;
