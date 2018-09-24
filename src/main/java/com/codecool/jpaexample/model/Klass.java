@@ -8,13 +8,17 @@ import java.util.Set;
 @Table(name = "Class")
 public class Klass {
     private String name;
-    private Set<Student> students = new HashSet<>();
+    private CCLocation location;
 
+    @OneToMany()
+    private Set<Student> students = new HashSet<>();
 
     public Klass() {}
 
-    public Klass(String name) {
+    public Klass(String name, CCLocation location) {
         this.name = name;
+        this.location = location;
+
     }
 
     public String getName() {
@@ -33,4 +37,14 @@ public class Klass {
         students.add(student);
     }
 
+    @Id
+    private String id;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 }
